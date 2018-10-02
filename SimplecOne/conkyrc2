@@ -1,0 +1,56 @@
+#-------------------------------#
+# SimpleC-One Conky-------------#
+# A siple custom conky theme---#
+# Clock Widget -----------------#
+# by luizfnunes-----------------#
+# http://github.com/luizfnunes -#
+# ------------------------------#
+# Customize colors:-------------#
+# color1 - text color ----------#
+# color2 - icons color ---------#
+# color3 - graphs color --------#
+#-------------------------------#
+
+#Text Color
+color1 67809F
+#Icons Color
+color2 AAA69D
+#Graph Color
+color3 BFBFBF
+
+update_interval 1
+double_buffer yes
+no_buffers yes
+imlib_cache_size 10
+own_window true
+own_window_type normal
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 255
+own_window_transparent true
+minimum_size 330 190
+background yes
+border_inner_margin 0
+border_outer_margin 0
+alignment top_right
+gap_x 10
+gap_y 48
+use_xft yes
+xftfont Roboto Condensed:size=12
+text_buffer_size 256
+draw_shades yes
+override_utf8_locale yes
+draw_graph_borders no
+default_color FFFFFF
+
+TEXT
+${voffset -10}$color1
+${goto 30}$color2${font LineAwesomeMod :size=50}:$color1 ${font Roboto Condensed:size=50}${exec date +%H:%M} $font${exec date +%S}
+
+${goto 30}$color2${font LineAwesomeMod :size=50}K $color1$font
+${alignr 65}${voffset -60}${exec date +"%A" | tr [a-z-ç] [A-Z-Ç]}
+${alignr 128}${voffset -30}${font Roboto Condensed:size=50}${exec date +%d}.$font
+${goto 205}${voffset -52}${font Roboto Condensed:size=34}${exec date +%m}.$font${alignr 30}${exec date +%Y}
+${voffset -120}
+

@@ -1,0 +1,58 @@
+#-------------------------------#
+# SimpleC-One Conky-------------#
+# A simple custom conky theme---#
+# System Monitor Widget --------#
+# by luizfnunes-----------------#
+# http://github.com/luizfnunes -#
+# ------------------------------#
+# Customize colors:-------------#
+# color1 - text color ----------#
+# color2 - icons color ---------#
+# color3 - graphs color --------#
+#-------------------------------#
+
+#Text Color
+color1 67809F
+#Icons Color
+color2 AAA69D
+#Graph Color
+color3 BFBFBF
+
+update_interval 1
+double_buffer yes
+no_buffers yes
+imlib_cache_size 10
+own_window true
+own_window_type normal
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 255
+own_window_transparent true
+minimum_size 330 190
+background yes
+border_inner_margin 0
+border_outer_margin 0
+alignment bottom_right
+gap_x 10
+gap_y 48
+use_xft yes
+xftfont Roboto Condensed:size=12
+text_buffer_size 256
+draw_shades yes
+override_utf8_locale yes
+draw_graph_borders no
+default_color FFFFFF
+cpu_avg_samples 2
+
+TEXT
+${voffset 10}$color1
+${goto 30}$color2${font LineAwesomeMod :size=14}g$color1 $font CPU ${alignr 30}${cpu}%
+${alignr 30}$color3${cpugraph 30,270 -l}$color
+${goto 30}$color2${font LineAwesomeMod :size=14}C$color1 $font Disk I/O ${alignr 30}${diskio}
+${alignr 30}$color3${diskiograph 30,270 -l}$color
+${goto 30}$color2${font LineAwesomeMod :size=14}p$color1 $font Load Average(1min) ${alignr 30}${loadavg 1}
+${alignr 30}$color3${loadgraph 30,270 -l}$color
+${goto 30}$color2${font LineAwesomeMod :size=14}-$color1 $font Memory ${alignr 30}${mem} - ${memperc}%
+${alignr 30}$color3${memgraph 30,270 -l}$color1
+
