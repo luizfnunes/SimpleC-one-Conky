@@ -45,8 +45,6 @@ override_utf8_locale yes
 draw_graph_borders no
 default_color FFFFFF
 
-#${addr enp2s0}
-#${execi 60 curl  ipinfo.io/ip}
 
 TEXT
 ${voffset 10}$color1
