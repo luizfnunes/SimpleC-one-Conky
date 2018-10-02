@@ -1,5 +1,5 @@
 # SingleC - One Conky
-
+![screen01](https://user-images.githubusercontent.com/9018264/46366863-8bcebd80-c652-11e8-8fd8-381ed191ddca.png)
 Single Conky Theme with 4 widgets: 
 -Weather
 -Clock/Calendar 
@@ -55,6 +55,9 @@ color1 67809F
 #Icons Color
 color2 AAA69D
 #Graph Color
-#color3 BFBFBF
+color3 BFBFBF
 ```
 and change the RGB color of your choice (without the #).
+## Variation of colors
+![screen02](https://user-images.githubusercontent.com/9018264/46366867-8ec9ae00-c652-11e8-975b-03c33851913b.png)
+![screen03](https://user-images.githubusercontent.com/9018264/46366870-8ffadb00-c652-11e8-9c08-37d5214c2450.png)
