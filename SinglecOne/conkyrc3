@@ -13,14 +13,11 @@
 
 
 #Text Color
-#color1 67809F
+color1 67809F
 #Icons Color
-#color2 AAA69D
+color2 AAA69D
 #Graph Color
-#color3 BFBFBF
-color1 81ecec
-color2 0abde3
-color3 10ac84
+color3 BFBFBF
 
 update_interval 1
 double_buffer yes
