@@ -58,5 +58,4 @@ ${goto 20}${color2}${font LineAwesomeMod :size=15}K $color1$font${execi 60 grep 
 ${voffset -24}${goto 90}${color2}${font LineAwesomeMod :size=15}($color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | head -n4 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}º${goto 140}${color2}${font LineAwesomeMod :size=15})$color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | head -n4 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}º${goto 200}${color2}${font LineAwesomeMod :size=15}O $color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | head -n4 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | cut -c 1-16}
 
 ${alignc}${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "<pubDate>\(.*\)</pubDate>" | sed 's/<pubDate>// ; s/<\/pubDate>//'}
-#${alignc}${execi 60 grep "query" ~/.cache/weather.xml | grep -o "yahoo:created=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
 ${voffset -120}
