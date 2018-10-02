@@ -44,7 +44,6 @@ override_utf8_locale yes
 draw_graph_borders no
 default_color FFFFFF
 
-#${image ~/.conky/MyConky/images/back-right1.png -p 0,0 -s 400x190}
 TEXT
 ${voffset -10}$color1
 ${goto 30}$color2${font LineAwesomeMod :size=50}:$color1 ${font Roboto Condensed:size=50}${exec date +%H:%M} $font${exec date +%S}
