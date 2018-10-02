@@ -1,0 +1,70 @@
+#-------------------------------#
+# SingleC-One Conky-------------#
+# A single custom conky theme---#
+# System Info/Net Widget -------#
+# by luizfnunes-----------------#
+# http://github.com/luizfnunes -#
+# ------------------------------#
+# Customize colors:-------------#
+# color1 - text color ----------#
+# color2 - icons color ---------#
+# color3 - graphs color --------#
+#-------------------------------#
+
+
+#Text Color
+#color1 67809F
+#Icons Color
+#color2 AAA69D
+#Graph Color
+#color3 BFBFBF
+color1 81ecec
+color2 0abde3
+color3 10ac84
+
+update_interval 1
+double_buffer yes
+no_buffers yes
+imlib_cache_size 10
+own_window true
+own_window_type normal
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 255
+own_window_transparent true
+minimum_size 330 190
+background yes
+border_inner_margin 0
+border_outer_margin 0
+alignment bottom_left
+gap_x 10
+gap_y 48
+use_xft yes
+xftfont Roboto Condensed:size=12
+text_buffer_size 256
+draw_shades yes
+override_utf8_locale yes
+draw_graph_borders no
+default_color FFFFFF
+
+#${addr enp2s0}
+#${execi 60 curl  ipinfo.io/ip}
+
+TEXT
+${voffset 10}$color1
+${goto 20}$color2${font LineAwesomeMod :size=14}M $font$color1 ${sysname} ${kernel} ${machine}
+${goto 20}$color2${font LineAwesomeMod :size=14}G $font$color1 Uptime ${uptime}
+${goto 20}$color2${font LineAwesomeMod :size=14}Q $font$color1 Running Processes ${running_processes} / ${processes} 
+${goto 20}$color2${font LineAwesomeMod :size=14}D $font$color1 Desktop${if_match "$desktop"!="Not running in X"}(${desktop}/${desktop_number})${endif}: ${desktop_name}
+${goto 20}$color2${font LineAwesomeMod :size=14}7 $font$color1 Threads: ${running_threads}
+
+${goto 20}$color2${font LineAwesomeMod :size=14}= $font$color1 Local IP: ${addr lo}
+${goto 20}$color2${font LineAwesomeMod :size=14}= $font$color1 Public IP: 0.0.0.0 
+
+${goto 20}$color2${font LineAwesomeMod :size=14}T $font$color1 Upload Speed${alignr 10}${upspeed enp2s0}
+${goto 20}$color3${upspeedgraph enp2s0 30, 300}$color1
+${goto 20}$color2${font LineAwesomeMod :size=14}8 $font$color1 Download Speed${alignr 10}${downspeed enp2s0}
+${goto 20}$color3${downspeedgraph enp2s0 30, 300 -l}$color1
+
+
