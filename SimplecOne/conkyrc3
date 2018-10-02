@@ -55,11 +55,11 @@ ${goto 20}$color2${font LineAwesomeMod :size=14}D $font$color1 Desktop${if_match
 ${goto 20}$color2${font LineAwesomeMod :size=14}7 $font$color1 Threads: ${running_threads}
 
 ${goto 20}$color2${font LineAwesomeMod :size=14}= $font$color1 Local IP: ${addr lo}
-${goto 20}$color2${font LineAwesomeMod :size=14}= $font$color1 Public IP: 0.0.0.0 
+${goto 20}$color2${font LineAwesomeMod :size=14}= $font$color1 Public IP: ${execi 60 curl  ipinfo.io/ip}
 
-${goto 20}$color2${font LineAwesomeMod :size=14}T $font$color1 Upload Speed${alignr 10}${upspeed enp2s0}
-${goto 20}$color3${upspeedgraph enp2s0 30, 300}$color1
-${goto 20}$color2${font LineAwesomeMod :size=14}8 $font$color1 Download Speed${alignr 10}${downspeed enp2s0}
-${goto 20}$color3${downspeedgraph enp2s0 30, 300 -l}$color1
+${goto 20}$color2${font LineAwesomeMod :size=14}T $font$color1 Upload Speed${alignr 10}${upspeed lo}
+${goto 20}$color3${upspeedgraph lo 30, 300}$color1
+${goto 20}$color2${font LineAwesomeMod :size=14}8 $font$color1 Download Speed${alignr 10}${downspeed lo}
+${goto 20}$color3${downspeedgraph lo 30, 300 -l}$color1
 
 
