@@ -28,7 +28,7 @@ own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
 own_window_colour 000000
 own_window_argb_visual yes
 own_window_argb_value 255
-own_window_transparent true
+own_window_transparent yes
 minimum_size 330 190
 background yes
 border_inner_margin 0
@@ -45,17 +45,13 @@ draw_graph_borders no
 default_color FFFFFF
 
 TEXT
-$color1${execi 300 curl -s "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D26798485%20and%20u%3D%27c%27" -o ~/.cache/weather.xml}
-${alignr 20}${execi 60 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"},${execi 60 grep "yweather:location" ~/.cache/weather.xml | grep -o "region=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
-${alignr 20}${execi 60 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} 
-${voffset -54}${goto 20}${font Roboto Condensed:size=50}${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}º${color2}${font LineAwesomeMod :size=50}O$color1 $font
-
-${goto 20}${color2}${font LineAwesomeMod :size=15}K $color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | head -n2 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
-${voffset -24}${goto 90}${color2}${font LineAwesomeMod :size=15}($color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | head -n2 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}º${goto 140}${color2}${font LineAwesomeMod :size=15})$color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | head -n2 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}º${goto 200}${color2}${font LineAwesomeMod :size=15}O $color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | head -n2 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | cut -c 1-16}
-${goto 20}${color2}${font LineAwesomeMod :size=15}K $color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | head -n3 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
-${voffset -24}${goto 90}${color2}${font LineAwesomeMod :size=15}($color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | head -n3 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}º${goto 140}${color2}${font LineAwesomeMod :size=15})$color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | head -n3 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}º${goto 200}${color2}${font LineAwesomeMod :size=15}O $color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | head -n3 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | cut -c 1-16}
-${goto 20}${color2}${font LineAwesomeMod :size=15}K $color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | head -n4 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
-${voffset -24}${goto 90}${color2}${font LineAwesomeMod :size=15}($color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | head -n4 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}º${goto 140}${color2}${font LineAwesomeMod :size=15})$color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | head -n4 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}º${goto 200}${color2}${font LineAwesomeMod :size=15}O $color1$font${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | head -n4 | tail -n1 | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | cut -c 1-16}
-
-${alignc}${execi 60 grep "yweather:condition" ~/.cache/weather.xml | grep -o "<pubDate>\(.*\)</pubDate>" | sed 's/<pubDate>// ; s/<\/pubDate>//'}
-${voffset -120}
+$color1${execi 3600 ~/.conky/SimplecOne/weather.py}
+${goto 20}${color2}${font LineAwesomeMod :size=15}V $color1$font${execi 60 cat ~/.cache/weather.txt | grep city | cut -d">" -f2} - ${execi 60 cat ~/.cache/weather.txt | grep country | cut -d">" -f2}
+${voffset 0}${goto 20}${color2}${font LineAwesomeMod :size=50}O $color1${font Roboto Condensed:size=50}${execi 60 cat ~/.cache/weather.txt | grep temp | cut -d">" -f2}º$color1 $font
+${goto 20}${color2}${font LineAwesomeMod :size=15}O $color1$font ${execi 60 cat ~/.cache/weather.txt | grep description | cut -d">" -f2}
+${goto 20}${color2}${font LineAwesomeMod :size=15}) $color1$font Min: ${execi 60 cat ~/.cache/weather.txt | grep min | cut -d">" -f2}º  
+${voffset -20}${alignr -89}${color2}${font LineAwesomeMod :size=15}( $color1$font Max: ${execi 60 cat ~/.cache/weather.txt | grep max | cut -d">" -f2}º
+${goto 20}${color2}${font LineAwesomeMod :size=15}! $color1$font Humidity: ${execi 60 cat ~/.cache/weather.txt | grep humidity | cut -d">" -f2}% 
+${voffset -20}${alignr -164}${color2}${font LineAwesomeMod :size=15}o $color1$font Winds: ${execi 60 cat ~/.cache/weather.txt | grep wind | cut -d">" -f2} m/s
+${goto 20}${color2}${font LineAwesomeMod :size=15}u $color1$font Pressure: ${execi 60 cat ~/.cache/weather.txt | grep pressure | cut -d">" -f2} hPa
+${goto 20}${color2}${font LineAwesomeMod :size=15}p $color1$font Last Update: ${execi 60 cat ~/.cache/weather.txt | grep update | cut -d">" -f2}
