@@ -6,7 +6,8 @@ Simple Conky Theme with 4 widgets:
 -System Info and Net Info
 -System Graph Monitor
 ## Requirements
-Conky installed
+- Conky installed
+- Python 3 to execute the weather
 ## Install
 Download and extract the project in your system.
 Copy the content of the folder **fonts/** to the directory **~/.fonts/**
@@ -43,6 +44,15 @@ chmod +x start.sh
 Execute the file
 ```shell
 sh start.sh
+```
+## Stop All
+Give write permission to the **stop.sh** file (inside the SimplecOne directory)
+```shell
+chmod +x stop.sh
+```
+Execute the file
+```shell
+sh stop.sh
 ```
 ## Recomendations
 Use your graphical environment to run the file **~/.conky/SimplecOne/start.sh** at startup.
