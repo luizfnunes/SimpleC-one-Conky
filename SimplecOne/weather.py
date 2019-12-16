@@ -23,7 +23,8 @@ COUNTRY  = "us"
 
 ########################################################
 main_url = "http://api.openweathermap.org/data/2.5/weather?"
-url = main_url+"APPID={}&q={},{}".format(API_KEY,CITY,COUNTRY)
+filtered_city = CITY.replace(" ", "%20")
+url = main_url+"APPID={}&q={},{}".format(API_KEY,filtered_city,COUNTRY)
 metrics = {"k":"&units=default","c":"&units=metric","f":"&units=imperial"}
 for key,value in metrics.items():
     if UNITY == key:
