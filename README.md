@@ -7,7 +7,7 @@ Simple Conky Theme with 4 widgets:
 -System Graph Monitor
 ## Requirements
 - Conky installed
-- Python 3 to execute the weather
+- Library Curl installed (to execute the weather)
 ## Install
 Download and extract the project in your system.
 Copy the content of the folder **fonts/** to the directory **~/.fonts/**

@@ -45,7 +45,7 @@ draw_graph_borders no
 default_color FFFFFF
 
 TEXT
-$color1${execi 3600 ~/.conky/SimplecOne/weather.py}
+$color1${execi 3600 ~/.conky/SimplecOne/weather.sh}
 ${goto 20}${color2}${font LineAwesomeMod :size=15}V $color1$font${execi 60 cat ~/.cache/weather.txt | grep city | cut -d">" -f2} - ${execi 60 cat ~/.cache/weather.txt | grep country | cut -d">" -f2}
 ${voffset 0}${goto 20}${color2}${font LineAwesomeMod :size=50}O $color1${font Roboto Condensed:size=50}${execi 60 cat ~/.cache/weather.txt | grep temp | cut -d">" -f2}º$color1 $font
 ${goto 20}${color2}${font LineAwesomeMod :size=15}O $color1$font ${execi 60 cat ~/.cache/weather.txt | grep description | cut -d">" -f2}
